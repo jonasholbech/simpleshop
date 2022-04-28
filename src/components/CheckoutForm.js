@@ -3,6 +3,18 @@ export default function CheckoutForm() {
   const formEl = useRef(null);
   function submitted(e) {
     e.preventDefault();
+    fetch("databaseendpoint/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullname: formEl.current.elements.fullname.value,
+        address: formEl.current.elements.address.value,
+      })
+        .then((res) => res.json())
+        .then((data) => {}),
+    });
     console.log(formEl.current.elements.fullname.value);
     console.log(formEl.current.elements.address.value);
   }
