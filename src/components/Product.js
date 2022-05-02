@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BasketContext } from "../contexts/basketContext";
 export default function Product(props) {
+  const { basket, setBasket } = useContext(BasketContext);
   function buy() {
-    if (props.basket.find((item) => item.id === props.product.id)) {
+    if (basket.find((item) => item.id === props.product.id)) {
       console.log("in basket already");
-      props.setBasket((old) =>
+      setBasket((old) =>
         old.map((item) => {
           if (item.id === props.product.id) {
             const copy = { ...item };
@@ -14,10 +17,7 @@ export default function Product(props) {
         })
       );
     } else {
-      props.setBasket((oldState) => [
-        ...oldState,
-        { ...props.product, amount: 1 },
-      ]);
+      setBasket((oldState) => [...oldState, { ...props.product, amount: 1 }]);
     }
   }
   return (
