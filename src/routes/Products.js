@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import ProductList from "../components/ProductList";
-import styles from "../App.module.css";
+
 function Products() {
   const [products, setProducts] = useState([]);
 
@@ -14,7 +14,7 @@ function Products() {
     getProducts();
   }, []);
   return (
-    <div className={styles.App}>
+    <div>
       <ProductList products={products} />
     </div>
   );

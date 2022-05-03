@@ -3,7 +3,7 @@
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
 }
-.App nav {
+.App header {
   grid-column: 1/-1;
 }
 .App > * {
