@@ -36,3 +36,7 @@ img {
   display: flex;
   gap: 0.5rem;
 }
+.removing {
+  transition: all 3s;
+  transform: translateX(500px);
+}
